@@ -35,8 +35,34 @@ public class BuildingDTO extends AbstractDTO{
     private String image;
     private String imageBase64;
     private String imageName;
-
+    private Long areaFrom;
+    private Long areaTo;
     private Map<String,String> buildingDTOs = new HashMap<>();
+    private String staffId;
+
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
+    public Long getAreaTo() {
+        return areaTo;
+    }
+
+    public void setAreaTo(Long areaTo) {
+        this.areaTo = areaTo;
+    }
+
+    public Long getAreaFrom() {
+        return areaFrom;
+    }
+
+    public void setAreaFrom(Long areaFrom) {
+        this.areaFrom = areaFrom;
+    }
 
     public Map<String, String> getBuildingDTOs() {
         return buildingDTOs;

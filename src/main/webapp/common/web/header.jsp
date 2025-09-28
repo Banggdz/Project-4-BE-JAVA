@@ -42,7 +42,7 @@
 					<div class="nav nav1">
 						<div class="nav-item p-2">
 							<a class="nav-item-link" href="/trang-chu">
-								<span style="color: var(--primary-color);">Trang chủ123</span>
+								<span style="color: var(--primary-color);">Trang chủ</span>
 							</a>
 						</div>
 						<div class="nav-item p-2">

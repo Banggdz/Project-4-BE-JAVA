@@ -3,7 +3,9 @@ package com.javaweb.model.response;
 
 import com.javaweb.model.dto.AbstractDTO;
 
-public class BuildingSearchResponse extends AbstractDTO {
+import java.util.List;
+
+public class  BuildingSearchResponse extends AbstractDTO {
 	private Long id;
 	private String createdDate;
 	private String name;
@@ -17,16 +19,45 @@ public class BuildingSearchResponse extends AbstractDTO {
     private Long rentPrice;
     private String serviceFee;
     private Double brokerageFee;
+    private String direction;
+    private String level;
+    private String district;
 
-	public Long getId() {
+    public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
+    public String staffId;
+    public String getStaffId() {
+        return staffId;
+    };
+    public Long areaFrom;
+    public Long areaTo;
 
-	public void setCreatedDate(String createdDate) {
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
+    public Long getAreaFrom() {
+        return areaFrom;
+    }
+
+    public void setAreaFrom(Long areaFrom) {
+        this.areaFrom = areaFrom;
+    }
+
+    public Long getAreaTo() {
+        return areaTo;
+    }
+
+    public void setAreaTo(Long areaTo) {
+        this.areaTo = areaTo;
+    }
+
+    public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 	public String getManagerName() {
@@ -89,8 +120,17 @@ public class BuildingSearchResponse extends AbstractDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+    public List<String> typeCode;
 
-	public Long getNumberOfBasement() {
+    public List<String> getTypeCode() {
+        return typeCode;
+    }
+
+    public void setTypeCode(List<String> typeCode) {
+        this.typeCode = typeCode;
+    }
+
+    public Long getNumberOfBasement() {
 		return numberOfBasement;
 	}
 
@@ -105,4 +145,28 @@ public class BuildingSearchResponse extends AbstractDTO {
 	public void setManagerPhone(String managerPhone) {
 		this.managerPhone = managerPhone;
 	}
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
 }

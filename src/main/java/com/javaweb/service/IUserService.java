@@ -25,4 +25,6 @@ public interface IUserService {
 //    ResponseDTO listStaff(Long buildingId);
     List<UserDTO> getAllUsers(Pageable pageable);
     int countTotalItems();
+
+    Map<Long,String>getStaffs();
 }
