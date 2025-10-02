@@ -2,12 +2,15 @@ package com.javaweb.api.admin;
 
 import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
+import com.javaweb.model.request.BuildingSearchRequest;
+import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.model.response.ResponseDTO;
-import com.javaweb.service.AssignmentBuildingService;
+import com.javaweb.repository.AssignmentBuildingRepository;
 import com.javaweb.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;   // ✅ đúng
 
 import java.util.List;
 
@@ -19,8 +22,12 @@ public class BuildingAPI {
     @Autowired
     private BuildingService buildingService;
     @Autowired
-    private AssignmentBuildingService assignmentBuildingService;
+    private AssignmentBuildingRepository assignmentBuildingRepository;
 
+    @GetMapping public List<BuildingSearchResponse> getBuilding(@ModelAttribute BuildingSearchRequest buildingSearchRequest, Pageable pageable) {
+        List<BuildingSearchResponse> res = buildingService.findAll(buildingSearchRequest,pageable);
+        return res;
+    }
     @DeleteMapping("/{ids}")
     public void deleteBuilding(@PathVariable Long[] ids) {
         buildingService.deleteBuildings(ids);
@@ -40,6 +47,6 @@ public class BuildingAPI {
 
     @PostMapping("/assignment")
     public void updateAssignmentBuilding(@RequestBody AssignmentBuildingDTO assignmentBuildingDTO){
-        assignmentBuildingService.addAssignmentBuilding(assignmentBuildingDTO);
+        buildingService.addAssignmentBuildingEntity(assignmentBuildingDTO);
     }
 }

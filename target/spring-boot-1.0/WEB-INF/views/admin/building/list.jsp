@@ -71,7 +71,7 @@
                 <div>
                     <label for="" class="name">Diện tích sàn</label>
 <%--                    <input type="number" class="form-control" name="floorArea" value="${modelSearch.floorArea}">--%>
-                    <form:input clas="form-control" path="floorArea"/>
+                    <form:input class="form-control" path="floorArea"/>
 
                 </div>
             </div>

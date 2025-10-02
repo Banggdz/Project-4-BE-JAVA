@@ -6,5 +6,4 @@ import com.javaweb.entity.RentAreaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AssignmentBuildingRepository extends JpaRepository<AssignmentBuildingEntity,Long> {
-    void deleteByBuilding(BuildingEntity buildingEntity);
 }

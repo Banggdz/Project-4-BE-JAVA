@@ -34,22 +34,30 @@ public class UserEntity extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "role_id", nullable = false))
     private List<RoleEntity> roles = new ArrayList<>();
+    @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<BuildingEntity> buildings = new ArrayList<>();
 
-
-    @OneToMany(mappedBy="userEntity", fetch = FetchType.LAZY)
-    private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
+//    @OneToMany(mappedBy="userEntity", fetch = FetchType.LAZY)
+//    private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
 
 //    @OneToMany(mappedBy="users", fetch = FetchType.LAZY)
 //    private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
 
-    public List<AssignmentBuildingEntity> getAssignmentBuildingEntities() {
-        return assignmentBuildingEntities;
+//    public List<AssignmentBuildingEntity> getAssignmentBuildingEntities() {
+//        return assignmentBuildingEntities;
+//    }
+//
+//    public void setAssignmentBuildingEntities(List<AssignmentBuildingEntity> assignmentBuildingEntities) {
+//        this.assignmentBuildingEntities = assignmentBuildingEntities;
+//    }
+
+    public List<BuildingEntity> getBuildings() {
+        return buildings;
     }
 
-    public void setAssignmentBuildingEntities(List<AssignmentBuildingEntity> assignmentBuildingEntities) {
-        this.assignmentBuildingEntities = assignmentBuildingEntities;
+    public void setBuildings(List<BuildingEntity> buildings) {
+        this.buildings = buildings;
     }
-
 //    public List<UserRoleEntity> getUserRoleEntities() {
 //        return userRoleEntities;
 //    }

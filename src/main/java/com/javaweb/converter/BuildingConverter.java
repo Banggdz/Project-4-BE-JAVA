@@ -20,14 +20,20 @@ public class BuildingConverter {
     @Autowired
     private ModelMapper modelMapper;
 
-    public BuildingEntity convertToEntity (BuildingDTO dto){
-        BuildingEntity result = modelMapper.map(dto, BuildingEntity.class);
-        return result;
+    @Autowired
+    private RentAreaConverter rentAreaConverter;
+    public BuildingEntity convertToEntity (BuildingDTO buildingDTO){
+        BuildingEntity buildingEntity = modelMapper.map(buildingDTO, BuildingEntity.class);
+        buildingEntity.setTypeCode(String.join(",", buildingDTO.getTypeCode()));
+        buildingEntity.setRentAreaEntities(rentAreaConverter.toRentAreaEntityList(buildingDTO,buildingEntity));
+        return buildingEntity;
     }
+
     public BuildingDTO convertToDto(BuildingEntity entity){
         BuildingDTO result = modelMapper.map(entity,BuildingDTO.class);
         return result;
     }
+
     public BuildingSearchResponse toBuildingSearchResponse (BuildingEntity item){
         BuildingSearchResponse res = modelMapper.map(item, BuildingSearchResponse.class);
         Map<String,String> districts = DistrictCode.type();

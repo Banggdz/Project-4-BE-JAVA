@@ -96,19 +96,19 @@ public class BuildingEntity {
 //    private String modifiedBy;
 //
 
-@OneToMany(mappedBy = "building",fetch = FetchType.LAZY)
+@OneToMany(mappedBy = "building",cascade = CascadeType.ALL, orphanRemoval = true)
 private List<RentAreaEntity> rentAreaEntityEntities = new ArrayList<>();
 
 
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinTable(name = "assignmentbuilding",
-//            joinColumns = @JoinColumn(name = "buildingid", nullable = false),
-//            inverseJoinColumns = @JoinColumn(name = "staffid", nullable = false))
-//    private List<UserEntity> userEntities = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "assignmentbuilding",
+            joinColumns = @JoinColumn(name = "buildingid", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "staffid", nullable = false))
+    private List<UserEntity> users = new ArrayList<>();
 
 
-    @OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
-    private List<AssignmentBuildingEntity> assignmentBuildings = new ArrayList<>();
+//    @OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
+//    private List<AssignmentBuildingEntity> assignmentBuildings = new ArrayList<>();
 
     public String getOvertimeFree() {
     return overtimeFree;
@@ -140,21 +140,31 @@ private List<RentAreaEntity> rentAreaEntityEntities = new ArrayList<>();
 //
 
 
-//    public List<UserEntity> getUserEntities() {
-//        return userEntities;
-//    }
-
-//    public void setUserEntities(List<UserEntity> userEntities) {
-//        this.userEntities = userEntities;
-//    }
-
-    public List<AssignmentBuildingEntity> getAssignmentBuildings() {
-        return assignmentBuildings;
+    public List<UserEntity> getUsers() {
+        return users;
     }
 
-    public void setAssignmentBuildings(List<AssignmentBuildingEntity> assignmentBuildings) {
-        this.assignmentBuildings = assignmentBuildings;
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
     }
+
+    public List<RentAreaEntity> getRentAreaEntityEntities() {
+        return rentAreaEntityEntities;
+    }
+
+    public void setRentAreaEntityEntities(List<RentAreaEntity> rentAreaEntityEntities) {
+        this.rentAreaEntityEntities = rentAreaEntityEntities;
+    }
+
+
+
+//    public List<AssignmentBuildingEntity> getAssignmentBuildings() {
+//        return assignmentBuildings;
+//    }
+//
+//    public void setAssignmentBuildings(List<AssignmentBuildingEntity> assignmentBuildings) {
+//        this.assignmentBuildings = assignmentBuildings;
+//    }
 
     public String getWaterFee() {
         return waterFee;
