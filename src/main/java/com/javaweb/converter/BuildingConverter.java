@@ -6,6 +6,7 @@ import com.javaweb.model.dto.BuildingDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.utils.DistrictCode;
+import com.javaweb.utils.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class BuildingConverter {
     public BuildingEntity convertToEntity (BuildingDTO buildingDTO){
         BuildingEntity buildingEntity = modelMapper.map(buildingDTO, BuildingEntity.class);
         buildingEntity.setTypeCode(String.join(",", buildingDTO.getTypeCode()));
-        buildingEntity.setRentAreaEntities(rentAreaConverter.toRentAreaEntityList(buildingDTO,buildingEntity));
+        if(StringUtils.check(buildingDTO.getRentArea())) buildingEntity.setRentAreaEntities(rentAreaConverter.toRentAreaEntityList(buildingDTO,buildingEntity));
         return buildingEntity;
     }
 

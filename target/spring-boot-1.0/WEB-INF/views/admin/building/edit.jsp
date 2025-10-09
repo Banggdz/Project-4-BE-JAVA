@@ -153,28 +153,28 @@
                         <div class="form-group">
                             <label class="col-xs-3">Hạng</label>
                             <div class="col-xs-9">
-                                <input class="form-control" type="text" id="grade" name="grade">
+                                <input class="form-control" type="text" id="level" name="level">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-xs-3">Diện tích thuê</label>
                             <div class="col-xs-9">
-                                <input class="form-control" type="number" id="rentalArea" name="rentalArea">
+                                <input class="form-control" type="number" id="rentalArea" name="rentArea">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-xs-3">Giá thuê</label>
                             <div class="col-xs-9">
-                                <input class="form-control" type="number" id="rentalPrice" name="rentalPrice">
+                                <input class="form-control" type="number" id="rentalPrice" name="rentPrice">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-xs-3">Mô tả giá</label>
                             <div class="col-xs-9">
-                                <input class="form-control" type="number" id="priceDescription" name="priceDescription">
+                                <input class="form-control" type="number" id="rentPriceDescription" name="rentPriceDescription">
                             </div>
                         </div>
 
@@ -188,7 +188,7 @@
                         <div class="form-group">
                             <label class="col-xs-3">Phí ô tô</label>
                             <div class="col-xs-9">
-                                <input class="form-control" type="number" id="carFee" name="carFee">
+                                <input class="form-control" type="number" id="motoFee" name="motoFee">
                             </div>
                         </div>
 

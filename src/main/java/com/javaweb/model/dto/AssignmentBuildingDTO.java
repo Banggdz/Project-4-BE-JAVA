@@ -1,7 +1,9 @@
 package com.javaweb.model.dto;
 
-import java.util.List;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+@Component
 public class AssignmentBuildingDTO {
     private Long buildingId;
     private List<Long> staffs;

@@ -45,6 +45,9 @@ public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private AssignmentBuildingDTO assignmentBuildingDTO;
+
     @Override
     public ResponseDTO listStaffs(Long buildingId) {
         BuildingEntity buildingEntity = buildingRepository.findById(buildingId).get();
@@ -92,9 +95,12 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
-    public AssignmentBuildingDTO addAssignmentBuildingEntity(
-            AssignmentBuildingDTO assignmentBuildingDTO) {
-        return null;
+    public AssignmentBuildingDTO addAssignmentBuildingEntity(AssignmentBuildingDTO assignmentBuildingDTO) {
+        BuildingEntity buildingEntity = buildingRepository.findById(assignmentBuildingDTO.getBuildingId()).get();
+        List<UserEntity> staffs = userRepository.findByIdIn(assignmentBuildingDTO.getStaffs());
+        buildingEntity.setUsers(staffs);
+        buildingRepository.save(buildingEntity);
+        return assignmentBuildingDTO;
     }
 
     @Override
